@@ -86,8 +86,8 @@ function init(db) {
     })
         .delete((req, res, next) => res.send(`delete user ${req.params.user_id}`));
 
-    router.put("/user", (req, res) => {
-        const { login, password, lastname, firstname } = req.body;
+    router.post("/user", (req, res) => {
+        const { login, password, lastname, firstname } = req.body; 
         if (!login || !password || !lastname || !firstname) {
             res.status(400).send("Missing fields");
         } else {

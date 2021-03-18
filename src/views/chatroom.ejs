@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Simple Chat</title>
+    <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+    <style type="text/css">
+        
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: white;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+          display: inline-block;
+          font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+          font-size: 12px;
+          font-weight: bold;
+          line-height: 16px;
+          background-color: white;
+          border-color: #eee #ddd #bbb;
+          border-radius: 5px;
+          border-style: solid;
+          border-width: 1px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+          margin: 10px 5px;
+          padding: 0 16px 16px 16px;
+          max-width: 468px;
+        }
+
+        .container p {
+          font-size: 16px;
+          font-weight: normal;
+          line-height: 20px;
+        }
+
+        .container a {
+          color: inherit;
+          font-weight: normal;
+          text-decoration: none;
+          outline: 0 none;
+        }
+
+
+
+        a {
+          color: dodgerblue;
+        }
+
+
+    </style>
+    <meta name="author" content="Stephan Soller" />
+</head>
+
+
+
+
+
+<body>
+
+
+  <div class="container">
+
+    <h2>mario</h2>
+    
+    <p>let it be my first post !!</p>
+  
+  </div>
+
+
+
+  
+ 
+
+<form action="/message/make_msg" method="post">
+    <p>
+        <input type="text" name="message" id="message" />
+    </p>     
+    
+    <button type="submit">Send</button>
+  
+</form>
+<form action="/message/get_message" method="get">
+  
+    <button type="submit">get my message</button>
+
+</form>
+
+
+
+</body>
+</html>
