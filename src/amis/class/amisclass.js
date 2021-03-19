@@ -11,10 +11,7 @@ class clsfriends{
     
     constructor(db){
      
-
         this.db=db
-    
- 
 
         this.db.run("CREATE TABLE IF NOT EXISTS Friends (from_user INTEGER NOT NULL, to_user INTEGER NOT NULL, date TIMESTAMP NOT NULL)");
 
@@ -37,7 +34,7 @@ class clsfriends{
 
                 console.log(this.us)
            
-                resolve("Know your friends !")
+                resolve("Now your friends !")
             
             })
         
@@ -48,17 +45,14 @@ class clsfriends{
     exists(from_user,to_user){
         
         /*
-        cette fonction est utliser avant la création d'un nouveau utilisateur 
-        @param information de l'utilisateur qui doivent etre unique (d'apres mon avis)
-        @return le resulat de nos recherche si le user existe un on renvoie une affirmation sinon on 
-        notifie au serveur que cette utilisateur existe .
+        
         */
 
         return new Promise((resolve,reject)=>{
 
             let requete ="SELECT from_user,to_user FROM Friends WHERE from_user=? AND to_user=?"
             
-            this.db.all(requete, [email,pseudo_name], (err, data) => {
+            this.db.all(requete, [from_user,to_user], (err, data) => {
             
                 if (err) {
             

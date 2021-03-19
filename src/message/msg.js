@@ -78,11 +78,19 @@ function init(){
             }
             
             if(await msg.insert(req.session.user_id,req.session.pseudo_name,message)){
-                console.log("good")
-                d=await msg.getMessage(req.session)
-               // console.log("great")
-                //console.log("fghjklmù",d)
-                res.status(200).render("chatroom");
+            
+                allmsg=await msg.getMessage(req.session)
+                
+                allmsg.sort(function(a,b){
+                    // Turn your strings into dates, and then subtract them
+                    // to get a value that is either negative, positive, or zero.
+                    return -1*(new Date(b.date) - new Date(a.date)) ;
+                });
+
+                
+
+
+                res.status(200).render("chatroom",allmsg);
 
             }
 

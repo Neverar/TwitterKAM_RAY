@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Simple Chat</title>
@@ -46,7 +46,10 @@
           outline: 0 none;
         }
 
-
+        .container small{
+          color: silver;
+          font-size: 9px;
+        }
 
         a {
           color: dodgerblue;
@@ -64,15 +67,41 @@
 <body>
 
 
-  <div class="container">
 
-    <h2>mario</h2>
-    
-    <p>let it be my first post !!</p>
-  
-  </div>
+  <%  if(typeof allmsg !== 'undefined'){    %>
+    <%allmsg.forEach(m=>{ %>
+
+      <div class="container">
+       
+        <%var date = ("0" + m.date.getDate()).slice(-2);%>
+
+        
+        <%var month = ("0" + (m.date.getMonth() + 1)).slice(-2);%>
+
+        
+        <%var year = m.date.getFullYear();%>
+
+       
+        <%var hours = m.date.getHours();%>
+
+       
+        <%var minutes = m.date.getMinutes();%>
+
+        
+        <%var seconds = m.date.getSeconds();%>
 
 
+        <% var all=year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds %>
+        <h2><%= m.pseudo_name%>  <small><%= all%></small></h2>
+        
+        <p><%= m.message %></p>
+      
+      </div>
+    </br>
+    <%})}%>
+
+ 
+ 
 
   
  
